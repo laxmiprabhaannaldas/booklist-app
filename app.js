@@ -38,6 +38,11 @@ class UI {
 
         list.appendChild(row);
     }
+    static clearFields() {
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#isbn').value = '';
+    }
 }
 //Store class:Handles Storage
 // Event: Display Books
@@ -56,6 +61,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     const book = new Book(title, author, isbn);
     console.log(book);
 
+    // Add Book to UI
+    UI.addBookToList(book);
 
+    // Clear fields
+    UI.clearFields();
 });
 // Event: Remove a Book
